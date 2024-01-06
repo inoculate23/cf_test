@@ -300,7 +300,10 @@
 <img id="res" src=response>
 <script>
   
-     
+
+
+
+ 
 
         
     let button = document.getElementById('submit');
@@ -323,6 +326,28 @@ const data = JSON.stringify({
   "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
   "Access-Control-Max-Age": "86400"
 });
+const inputs = JSON.stringify({
+    "key": "inputs",
+      "prompt": "ultra realistic close up portrait ((beautiful pale punk female with heavy black eyeliner and a big bossom))",
+      "negative_prompt": null,
+      "width": "1024",
+      "height": "1024",
+      "samples": "1",
+      "num_inference_steps": "50",
+      "safety_checker": "no",
+      "enhance_prompt": "yes",
+      "seed": null,
+      "guidance_scale": 7.5,
+      "multi_lingual": "no",
+      "panorama": "no",
+      "self_attention": "no",
+      "upscale": "",
+      "embeddings_model": null,
+      "webhook": null,
+      "track_id": null
+    }
+)
+
 //const url = ('https://ai.haawkeneuraltech.com/?authorization=Bearer mhi_Rx_wSEZn5hbxNNFTBgaEhBkKMZCQo&prompt=' + inputVal );
 const url = ('https://worker-mute-pond-349b.inoculatemedia.workers.dev/?&prompt=' + inputVal );
 
@@ -348,7 +373,7 @@ xhr.send(data);
 
 
 var newImage = document.createElement('img')
-newImage.setAttribute('src', response);
+newImage.setAttribute('src', response.data);
 document.body.remove(span)
 document.body.append(newImage);
       </script>
